@@ -9,6 +9,7 @@ function App() {
                 <div className="App">
                     <Route exact path='/' render = { () => <FilmsListContainer /> } />
                     <Route path='/film/:id' render = { () => <AboutFilmContainer /> } />
+                    <Route path='/page/:page' render = { () => <FilmsListContainer /> } />
                 </div>
 
             );

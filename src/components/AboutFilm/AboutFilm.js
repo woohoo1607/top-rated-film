@@ -1,6 +1,4 @@
 import React from 'react';
-//import FilmCard from './FilmCard/FilmCard';
-//import Search from './Search';
 import styles from './AboutFilm.module.css';
 import star from '../../img/starIcon.png'
 
@@ -9,7 +7,6 @@ const baseImageURL = "https://image.tmdb.org/t/p/w500/";
 
 
 const FilmsList = (props) => {
-    console.log(props.aboutFilm.filmData);
     let data = props.aboutFilm.filmData;;
     
     let countries = [];
@@ -38,7 +35,7 @@ const FilmsList = (props) => {
     
     return (
             <div className={styles.center}>
-    <button>Nazad</button>
+            <button>Back</button>
                 <h1>{data.title}</h1>
                 <div className={styles.container}>
                 <div className={styles.imgMovie}>

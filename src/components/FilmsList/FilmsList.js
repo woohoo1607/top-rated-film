@@ -7,9 +7,10 @@ import styles from './FilmList.module.css';
 
 class FilmsList extends React.Component {
 
-click = (pageNumber) => {
-    this.props.getFilms(pageNumber);
-    window.scrollTo(0,0);
+componentDidUpdate(prevProps, prevState) {
+    if (prevProps.films.currentPage !== this.props.films.currentPage) {
+            window.scrollTo(0,0);
+        }
 }
 
 render() {
@@ -42,18 +43,18 @@ render() {
 
     return (
             <div className={styles.center}>
+    {}
                 <Search searchFilms={this.props.searchFilms}/>
                 <div className={styles.container}>
                 
-        {this.props.films.filmsData.map(film => <div key={film.id} className={styles.beforeContainer} ><NavLink to={`/film/${film.id}`}><FilmCard key={film.id} title={film.title}
+        {this.props.films.filmsData.map(film => <div key={film.id} className={styles.beforeContainer} ><NavLink to={`/film/${film.id}`} ><FilmCard key={film.id} title={film.title}
             rating={film.vote_average} poster={film.poster_path}/></NavLink></div>)}
                 
                 </div>
                 <div className={styles.pages}>
                     {pages.map( (p, index) => {
-                        return <span key={index} className={(this.props.films.currentPage === p) ? styles.current : null + " "+ 
-                                (p==="..." && styles.disable)}
-                            onClick={(e) => {this.click(p)}}>{p}</span>
+                        return <NavLink to={`/page/${p}`} key={index} className={""+(p==="..." && styles.disable)}>
+                        <span className={(this.props.films.currentPage === p) ? styles.current : null}>{p}</span></NavLink>
                                         
                     })}
                 </div>
