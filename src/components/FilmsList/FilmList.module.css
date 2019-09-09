@@ -1,8 +1,26 @@
 .center {width:1100px; margin:0 auto;}
 .container {display: flex; flex-wrap: wrap; justify-content: space-around;}
-.beforeContainer {width:35%;}
+.beforeContainer {width:34%;}
 .pages {padding: 20px 0; text-align: center; font-size: 25px; color:#fff;}
 .pages span {margin: 0 5px; cursor: pointer;}
 .disable {pointer-events: none;}
 .current {font-weight: bold; color: gold;}
 a {text-decoration: none;}
+
+@media only screen and (max-width: 1099px) { /* 912<width<1099 main 912*/
+.center {width: 98%;}
+}
+/*-------------------------------------*/
+@media only screen and (max-width: 911px) { /* 768<width<979 main 768*/
+.beforeContainer {width:40%;}
+}
+/*-------------------------------------*/
+@media only screen and (max-width: 767px) { /* 480<width<767 main 480*/
+.container {display: block;}
+.beforeContainer {width: 300px; margin: 0 auto;}
+}
+/*-------------------------------------*/
+@media only screen and (max-width: 479px) { /* 320<width<479 main 320*/
+
+    
+}

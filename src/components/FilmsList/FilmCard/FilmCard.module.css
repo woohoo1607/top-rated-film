@@ -1,7 +1,23 @@
-.movie {width: 100%; background-color: #191e24; height: 600px; margin-top: 20px;}
-.imgMovie {}
+.movie {width: 100%; background-color: #191e24; margin-top: 20px;}
 .imgMovie img {width: 100%; height: 450px;}
 .about {padding: 15px;}
 .title {color: #fff; text-align: center; font-size: 30px;}
 .rating {color: #c49135; text-align: center; font-size: 30px;}
 .rating img {vertical-align:central;}
+
+@media only screen and (max-width: 1099px) { /* 912<width<1099 main 912*/
+
+}
+/*-------------------------------------*/
+@media only screen and (max-width: 911px) { /* 768<width<979 main 768*/
+
+}
+/*-------------------------------------*/
+@media only screen and (max-width: 767px) { /* 480<width<767 main 480*/
+.movie {height: auto;}
+}
+/*-------------------------------------*/
+@media only screen and (max-width: 479px) { /* 320<width<479 main 320*/
+
+    
+}

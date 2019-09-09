@@ -7,3 +7,26 @@ h1 {font-size: 40px; color: #B2FF00; text-align: center; font-weight: bold; padd
 .info {color: #fff; width: 55%; font-size: 20px;}
 
 .titles{font-weight: bold; color: red;}
+
+@media only screen and (max-width: 1099px) { /* 912<width<1099 main 912*/
+.center {width:98%;}
+
+.imgMovie {width: 35%;}
+.info {width: 50%;}
+}
+/*-------------------------------------*/
+@media only screen and (max-width: 911px) { /* 768<width<979 main 768*/
+.container {display: block;}
+.imgMovie {margin: 0 auto; width: 100%; text-align: center; padding-bottom: 20px;}
+.info {width: 100%;}
+button {margin: 10px auto; display: block;}
+}
+/*-------------------------------------*/
+@media only screen and (max-width: 767px) { /* 480<width<767 main 480*/
+
+}
+/*-------------------------------------*/
+@media only screen and (max-width: 479px) { /* 320<width<479 main 320*/
+.imgMovie img {height: 350px;}
+    
+}
