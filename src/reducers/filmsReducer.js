@@ -75,7 +75,9 @@ export const getFilms = (currentPage) => {
 
 export const searchFilms = (data) => {
     return (dispatch) => {
+        dispatch(toggleIsFetching(true));
         filmsAPI.searchFilms(data).then(response => {
+            dispatch(toggleIsFetching(false));
             if (response.results) {
                 dispatch(setFilms(response.results));
                 dispatch(setCurrentPage(response.page));

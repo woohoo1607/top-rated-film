@@ -3,7 +3,7 @@ import FilmCard from './FilmCard/FilmCard';
 import Search from './Search';
 import {NavLink} from "react-router-dom"; 
 import styles from './FilmList.module.css';
-
+import Preloader from "../Preloader";
 
 class FilmsList extends React.Component {
 
@@ -28,10 +28,16 @@ render() {
             }
         } else if (this.props.films.currentPage - 3 > 0) {
             pages.push(1, "...");
-            for (let i = this.props.films.currentPage - 1; i < this.props.films.currentPage + 2; i++) {
+            if (this.props.films.currentPage + 2 >= this.props.films.totalPages) {
+                for (let i = this.props.films.totalPages-2; i<=this.props.films.totalPages; i++){
                     pages.push(i);
                 };
-            pages.push("...", this.props.films.totalPages);
+            } else {
+                for (let i = this.props.films.currentPage - 1; i < this.props.films.currentPage + 2; i++) {
+                    pages.push(i);
+                };
+                pages.push("...", this.props.films.totalPages);
+            }
         } else {
             for (let i = 1; i < this.props.films.currentPage + 5; i++) {
                     pages.push(i);
@@ -45,6 +51,8 @@ render() {
             <div className={styles.center}>
     {}
                 <Search searchFilms={this.props.searchFilms}/>
+                
+                {this.props.films.isFetching && <Preloader />}
                 <div className={styles.container}>
                 
         {this.props.films.filmsData.map(film => <div key={film.id} className={styles.beforeContainer} ><NavLink to={`/film/${film.id}`} ><FilmCard key={film.id} title={film.title}

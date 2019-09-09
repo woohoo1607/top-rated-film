@@ -3,7 +3,6 @@ import FilmsList from './FilmsList';
 import {getFilms, searchFilms, setCurrentPage} from "../../reducers/filmsReducer";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
-//import Preloader from "../Preloader";
 
 class FilmsListContainer extends React.Component {
 
@@ -11,8 +10,8 @@ class FilmsListContainer extends React.Component {
     componentDidUpdate (prevProps, prevState) {
         if (prevProps.match.params.page !== this.props.match.params.page) {
             this.props.getFilms(this.props.match.params.page);
+            window.scrollTo(0,0);
         }
-        
     }
     
     componentDidMount() {
@@ -32,7 +31,6 @@ class FilmsListContainer extends React.Component {
                            getFilms={this.props.getFilms}
                            searchFilms={this.props.searchFilms} />
                 
-
                 )
     }
 }

@@ -1,23 +1,31 @@
 import React from 'react';
 import AboutFilm from './AboutFilm';
-import {getFilm} from "../../reducers/filmPageReducer";
+import {getFilm, clearFilm} from "../../reducers/filmPageReducer";
 import {connect} from "react-redux";
 import {withRouter} from "react-router-dom";
-//import Preloader from "../Preloader";
+import Preloader from "../Preloader";
 
 class FilmsListContainer extends React.Component {
     componentDidMount() {
         let id = this.props.match.params.id;
         this.props.getFilm(id);
+        window.scrollTo(0,0);
+        console.log(this.props);
+    }
+    
+    componentWillUnmount(){
+        this.props.clearFilm();
     }
     
 
     render() {
         return (
-
+                <>
+                {this.props.aboutFilm.isFetching && <Preloader />}
                 <AboutFilm aboutFilm={this.props.aboutFilm}
-
+                           goBack={this.props.history.goBack}
                 />
+                </>
 
                 );
     }
@@ -31,4 +39,4 @@ let mapStateToProps = (state) => {
 
 
 
-export default connect(mapStateToProps, {getFilm})(withRouter(FilmsListContainer));
+export default connect(mapStateToProps, {getFilm, clearFilm})(withRouter(FilmsListContainer));

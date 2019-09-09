@@ -35,7 +35,7 @@ const FilmsList = (props) => {
     
     return (
             <div className={styles.center}>
-            <button>Back</button>
+            <button onClick={() => {props.goBack()}}>Back</button>
                 <h1>{data.title}</h1>
                 <div className={styles.container}>
                 <div className={styles.imgMovie}>

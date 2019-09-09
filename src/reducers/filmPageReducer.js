@@ -1,6 +1,7 @@
 import {filmsAPI} from "../api/api";
 
 const SET_FILM = "SET_FILM";
+const CLEAR_FILM = "CLEAR_FILM";
 const TOGGLE_IS_FETCHING = "TOGGLE_IS_FETCHING";
 
 
@@ -20,6 +21,13 @@ const filmPageReducer = (state = initialState, action) => {
                 filmData: {...action.filmData}
             };
         }
+        case CLEAR_FILM:
+        {
+            return {
+                ...state,
+                filmData: {}
+            };
+        }
         case TOGGLE_IS_FETCHING:
         {
             return {
@@ -34,9 +42,12 @@ const filmPageReducer = (state = initialState, action) => {
 export const setFilm = (film) =>
     ({type: SET_FILM, filmData: film});
 
+export const clearFilm = () =>
+    ({type: CLEAR_FILM});
+
 export const toggleIsFetching = (isFetching) =>
     ({type: TOGGLE_IS_FETCHING, isFetching});
-
+    
 export const getFilm = (id) => {
     return (dispatch) => {
         dispatch(toggleIsFetching(true));
