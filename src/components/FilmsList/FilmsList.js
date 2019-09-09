@@ -1,0 +1,66 @@
+import React from 'react';
+import FilmCard from './FilmCard/FilmCard';
+import Search from './Search';
+import {NavLink} from "react-router-dom"; 
+import styles from './FilmList.module.css';
+
+
+class FilmsList extends React.Component {
+
+click = (pageNumber) => {
+    this.props.getFilms(pageNumber);
+    window.scrollTo(0,0);
+}
+
+render() {
+        let pages = [];
+        if (this.props.films.currentPage - 3 <= 0) {
+            if (this.props.films.currentPage + 3 < this.props.films.totalPages) {
+                for (let i = 1; i < this.props.films.currentPage + 3; i++) {
+                    pages.push(i);
+                };
+                pages.push("...", this.props.films.totalPages);
+            } else {
+                for (let i = 1; i < this.props.films.totalPages; i++) {
+                    pages.push(i);
+                };
+            }
+        } else if (this.props.films.currentPage - 3 > 0) {
+            pages.push(1, "...");
+            for (let i = this.props.films.currentPage - 1; i < this.props.films.currentPage + 2; i++) {
+                    pages.push(i);
+                };
+            pages.push("...", this.props.films.totalPages);
+        } else {
+            for (let i = 1; i < this.props.films.currentPage + 5; i++) {
+                    pages.push(i);
+                };
+                pages.push("...", this.props.films.totalPages);
+        }
+        
+        
+
+    return (
+            <div className={styles.center}>
+                <Search searchFilms={this.props.searchFilms}/>
+                <div className={styles.container}>
+                
+        {this.props.films.filmsData.map(film => <div key={film.id} className={styles.beforeContainer} ><NavLink to={`/film/${film.id}`}><FilmCard key={film.id} title={film.title}
+            rating={film.vote_average} poster={film.poster_path}/></NavLink></div>)}
+                
+                </div>
+                <div className={styles.pages}>
+                    {pages.map( (p, index) => {
+                        return <span key={index} className={(this.props.films.currentPage === p) ? styles.current : null + " "+ 
+                                (p==="..." && styles.disable)}
+                            onClick={(e) => {this.click(p)}}>{p}</span>
+                                        
+                    })}
+                </div>
+            </div>
+                );
+
+};
+};
+
+export default FilmsList;

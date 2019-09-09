@@ -1,0 +1,8 @@
+.center {width:1100px; margin:0 auto;}
+.container {display: flex; flex-wrap: wrap; justify-content: space-around;}
+.beforeContainer {width:35%;}
+.pages {padding: 20px 0; text-align: center; font-size: 25px; color:#fff;}
+.pages span {margin: 0 5px; cursor: pointer;}
+.disable {pointer-events: none;}
+.current {font-weight: bold; color: gold;}
+a {text-decoration: none;}

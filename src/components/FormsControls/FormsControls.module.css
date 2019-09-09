@@ -1,0 +1,6 @@
+.formControl {
+    display: flex; justify-content: space-between;
+}
+.formControl.error input {
+    border: solid red 2px;
+}
