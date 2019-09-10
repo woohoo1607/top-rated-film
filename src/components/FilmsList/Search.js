@@ -28,7 +28,7 @@ const Search = (props) => {
     };
     let timer = null;
     const editInput = (e) => {
-        let data = e.nativeEvent.data;
+        let data = e.target.value;
         if (timer){
             clearTimeout(timer);
         }
