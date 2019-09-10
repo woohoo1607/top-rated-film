@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/top-rated-film/static/css/main.9419ef2e.chunk.css",
-    "main.js": "/top-rated-film/static/js/main.721e4e39.chunk.js",
-    "main.js.map": "/top-rated-film/static/js/main.721e4e39.chunk.js.map",
+    "main.js": "/top-rated-film/static/js/main.b721f847.chunk.js",
+    "main.js.map": "/top-rated-film/static/js/main.b721f847.chunk.js.map",
     "runtime~main.js": "/top-rated-film/static/js/runtime~main.0c33981d.js",
     "runtime~main.js.map": "/top-rated-film/static/js/runtime~main.0c33981d.js.map",
     "static/js/2.5ac37861.chunk.js": "/top-rated-film/static/js/2.5ac37861.chunk.js",
     "static/js/2.5ac37861.chunk.js.map": "/top-rated-film/static/js/2.5ac37861.chunk.js.map",
     "index.html": "/top-rated-film/index.html",
-    "precache-manifest.8f03dadae2ab26866a67f980b730715c.js": "/top-rated-film/precache-manifest.8f03dadae2ab26866a67f980b730715c.js",
+    "precache-manifest.cb9e7bf589d4fe7c1736636cb9052bc7.js": "/top-rated-film/precache-manifest.cb9e7bf589d4fe7c1736636cb9052bc7.js",
     "service-worker.js": "/top-rated-film/service-worker.js",
     "static/css/main.9419ef2e.chunk.css.map": "/top-rated-film/static/css/main.9419ef2e.chunk.css.map",
     "static/media/App.css": "/top-rated-film/static/media/darkBackground.8a001a35.jpg",
