@@ -28,8 +28,7 @@ export const filmsAPI = {
             });
         } else {
             let query = data.replace(/ /g, "+");
-            return instance.get(`search/movie?api_key=${APIKey}&query=${query}`).then(response => {
-                console.log(response.data);
+            return instance.get(`search/movie?api_key=${APIKey}&query=${query}`).then(response => { 
                 return response.data;
             });
         }

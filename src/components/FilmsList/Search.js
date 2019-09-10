@@ -21,14 +21,14 @@ const SearchReduxForm = reduxForm({form: 'searchForm'})(SearchForm);
 const Search = (props) => {
 
     const onSubmit = (formData) => {
-        console.log(formData);
+        
     };
     const sendSearch = (data) => {
         props.searchFilms(data);
     };
     let timer = null;
     const editInput = (e) => {
-        let data = e.nativeEvent.path[0].value;
+        let data = e.nativeEvent.data;
         if (timer){
             clearTimeout(timer);
         }
