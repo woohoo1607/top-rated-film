@@ -10,7 +10,6 @@ class FilmsListContainer extends React.Component {
         let id = this.props.match.params.id;
         this.props.getFilm(id);
         window.scrollTo(0,0);
-        console.log(this.props);
     }
     
     componentWillUnmount(){
