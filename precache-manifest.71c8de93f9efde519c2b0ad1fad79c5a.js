@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fc92eb5b36819f7d4d54e6d12789f4b9",
+    "revision": "fa86b02149540022ed2ff539e0355cd1",
     "url": "/top-rated-film/index.html"
   },
   {
-    "revision": "ed40d0f04309862a9c42",
+    "revision": "3b5b47ec3b228abc4043",
     "url": "/top-rated-film/static/css/main.9419ef2e.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/top-rated-film/static/js/2.5ac37861.chunk.js"
   },
   {
-    "revision": "ed40d0f04309862a9c42",
-    "url": "/top-rated-film/static/js/main.54bb699d.chunk.js"
+    "revision": "3b5b47ec3b228abc4043",
+    "url": "/top-rated-film/static/js/main.9d2f399d.chunk.js"
   },
   {
     "revision": "2589bcd7ce449d648994",
