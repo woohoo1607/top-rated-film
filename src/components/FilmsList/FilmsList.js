@@ -49,8 +49,8 @@ render() {
 
     return (
             <div className={styles.center}>
-    {}
-                <Search searchFilms={this.props.searchFilms}/>
+    
+            <div className={styles.search}><Search searchFilms={this.props.searchFilms}/></div>
                 
                 {this.props.films.isFetching && <Preloader />}
                 <div className={styles.container}>

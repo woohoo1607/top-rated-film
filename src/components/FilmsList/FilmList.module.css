@@ -6,6 +6,7 @@
 .disable {pointer-events: none;}
 .current {font-weight: bold; color: gold;}
 a {text-decoration: none;}
+.search {width: 175px; margin: 0 auto;}
 
 @media only screen and (max-width: 1099px) { /* 912<width<1099 main 912*/
 .center {width: 98%;}
