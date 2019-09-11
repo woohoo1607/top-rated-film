@@ -19,12 +19,17 @@ const SearchForm = (props) => {
 const SearchReduxForm = reduxForm({form: 'searchForm'})(SearchForm);
 
 const Search = (props) => {
-
+console.log(props.searchReq);
     const onSubmit = (formData) => {
         
     };
     const sendSearch = (data) => {
         props.searchFilms(data);
+        if (data) {
+            props.history.push(`/search/${data}`);
+        } else {
+            props.history.push(`/`);
+        }
     };
     let timer = null;
     const editInput = (e) => {
@@ -33,14 +38,11 @@ const Search = (props) => {
             clearTimeout(timer);
         }
         timer = setTimeout(() => sendSearch(data), 1000);
-
-
-
     };
 
     return (
             <div>
-                <SearchReduxForm onSubmit={onSubmit} editInput={editInput}/>
+                <SearchReduxForm onSubmit={onSubmit} editInput={editInput} initialValues={{'search': props.searchReq}}/>
             </div>
             );
 };

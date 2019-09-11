@@ -20,17 +20,33 @@ class FilmsListContainer extends React.Component {
         } else {
             this.props.getFilms();
         }
-
     }   
 
 
     render() {
-        return (
-
-                <FilmsList films={this.props.films}
+        let searching = false;
+        if (this.props.match.path === "/search/:req") {
+            if (this.props.match.params.req !== "undefined") {
+                searching = true;
+            } else {
+                searching = false;
+            }
+        }
+        
+        return (<>
+                {searching && 
+                        <FilmsList films={this.props.films}
                            getFilms={this.props.getFilms}
-                           searchFilms={this.props.searchFilms} />
-                
+                           searchFilms={this.props.searchFilms} 
+                           history={this.props.history} 
+                           searchReq={this.props.match.params.req}/> }
+                           
+                {!searching &&
+                        <FilmsList films={this.props.films}
+                           getFilms={this.props.getFilms}
+                           searchFilms={this.props.searchFilms} 
+                           history={this.props.history} />}
+                </>
                 )
     }
 }
