@@ -13,36 +13,40 @@ componentDidUpdate(prevProps, prevState) {
         }
 }
 
+addPages = (start, end, acc) => {
+    if(start>=end)
+        return acc;
+    acc.push(start);
+    return this.addPages(start+1, end, acc);
+};
+addPages2 = (start, end, acc) => {
+    if(start>end)
+        return acc;
+    
+    acc.push(start);
+    return this.addPages2(start+1, end, acc);
+};
+
 render() {
         let pages = [];
         if (this.props.films.currentPage - 3 <= 0) {
             if (this.props.films.currentPage + 3 < this.props.films.totalPages) {
-                for (let i = 1; i < this.props.films.currentPage + 3; i++) {
-                    pages.push(i);
-                };
+                this.addPages(1, (this.props.films.currentPage + 3), pages);
                 pages.push("...", this.props.films.totalPages);
             } else {
-                for (let i = 1; i < this.props.films.totalPages; i++) {
-                    pages.push(i);
-                };
+                this.addPages(1, this.props.films.totalPages, pages);
             }
         } else if (this.props.films.currentPage - 3 > 0) {
             pages.push(1, "...");
-            if (this.props.films.currentPage + 2 >= this.props.films.totalPages) {
-                for (let i = this.props.films.totalPages-2; i<=this.props.films.totalPages; i++){
-                    pages.push(i);
-                };
+            if (this.props.films.currentPage + 2 > this.props.films.totalPages) {
+                this.addPages2((this.props.films.totalPages-2), (this.props.films.totalPages), pages);
             } else {
-                for (let i = this.props.films.currentPage - 1; i < this.props.films.currentPage + 2; i++) {
-                    pages.push(i);
-                };
+                this.addPages((this.props.films.currentPage - 1), (this.props.films.currentPage+2), pages);
                 pages.push("...", this.props.films.totalPages);
             }
         } else {
-            for (let i = 1; i < this.props.films.currentPage + 5; i++) {
-                    pages.push(i);
-                };
-                pages.push("...", this.props.films.totalPages);
+            this.addPages(1, (this.props.films.currentPage+5), pages);
+            pages.push("...", this.props.films.totalPages);
         }
         
         
